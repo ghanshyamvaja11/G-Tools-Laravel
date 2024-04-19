@@ -168,6 +168,7 @@
     <div class="navbar">
         <div class="login-register">
             <button class="cta-button"><a href="{{url('')}}/login">Login</a></button>
+            <button class="cta-button"><a href="{{url('')}}/AdminLogin">Admin Login</a></button>
             <button class="cta-button"><a href="{{url('')}}/register">Register</a></button>
         </div>
     </div>

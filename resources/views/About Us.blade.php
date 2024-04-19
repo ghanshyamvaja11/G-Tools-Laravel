@@ -1,6 +1,6 @@
 @extends('Layout.main')
 @push('title')
-    <title>G Tools - About Us</title>
+    <title>Ash Tools - About Us</title>
 @endpush
 @section('Content_Information')
 <head>

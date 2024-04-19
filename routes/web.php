@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Users;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MathTools;
 use App\Http\Controllers\Contact_Us_Controller;
@@ -10,6 +11,7 @@ use App\Http\Controllers\MatrixCalculator;
 use App\Http\Controllers\SubscribeInsert;
 use App\Http\Controllers\SetCalculation;
 use App\Http\Controllers\Register_Login;
+use App\Http\Controllers\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,28 @@ Route::get('/login', function(){
     return view('Login');
 });
 Route::post('/Login', [Register_Login::class, 'Login']);
+
+Route::get('/AdminLogin', function () {
+    return view('AdminLogin');
+});
+Route::post('/AdminLogin', [Register_Login::class, 'AdminLogin']);
+
+Route::get('/Admin/Dashboard', function () {
+    return view('Admin.Dashboard');
+});
+
+Route::get('/Admin/remove', function () {
+    $users = Users::all();
+    return view('Admin.RemoveUsers', compact('users'));
+});
+
+Route::post('/Admin/remove/{email}', [Admin::class, 'RemoveUser']);
+
+Route::get('/Admin/sendmail', function () {
+    return view('Admin.SendMail');
+});
+
+Route::post('/Admin/sendmail', [Admin::class, 'SendEmail']);
 
 Route::get('/sessiondestroy', function(){
     session()->forget('Email');

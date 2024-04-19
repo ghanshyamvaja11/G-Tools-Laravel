@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Admin;
+use App\Mail\SendEmail;
+use Illuminate\Support\Facades\Mail;
 
 class Register_Login extends Controller
 {
@@ -32,9 +35,11 @@ class Register_Login extends Controller
         $Users->password = md5($request->Password);
         $Users->updated_at = time();
         $Users->created_at = time();
+        $Email = $Users->email;
         if($Users->save()){
             
-            mail($Users->email, "Registeration Confirmation", "Hi ". $Users->name. ",\nThank you for Registering Yourself on our platform now enjoy our services.");
+            $Success = "Hi ". $Users->name. ",\nThank you for Registering Yourself on our platform now enjoy our services.";
+            Mail::send(new SendEmail($Email, 'Registration Confirmation', $Success));
             $success = "success";
             return view('Register')->with(compact('success', 'Name', 'Email'));
     }
@@ -60,5 +65,26 @@ else{
     $NotFound = "Email and Password Combination is not found in our database, try again later";
     return view('Login')->with('NotFound', $NotFound);
 }
+    }
+
+    public function AdminLogin(Request $request)
+    {
+        $request->validate(
+            [
+                'Email' => 'required|email',
+                'Password' => 'required|string'
+            ]
+        );
+
+        $Email = strtolower($request->input('Email'));
+        $Password = $request->input('Password');
+        $data = Admin::where('email', $Email)->where('password', $Password)->first();
+        if ($data) {
+            session(['Email' => $Email]);
+            return redirect('Admin/Dashboard');
+        } else {
+            $NotFound = "Email and Password Combination is not found in our database, try again later";
+            return view('AdminLogin')->with('NotFound', $NotFound);
+        }
     }
 }

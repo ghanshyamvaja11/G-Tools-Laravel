@@ -1,7 +1,7 @@
 @extends('Layout.main')
 
 @push('title')
-    <title>G  Tools - Random Number generator</title>
+    <title>G Tools - Random Number generator</title>
 @endpush
 
 @section('Content_Information')
@@ -62,7 +62,6 @@ textarea {
 </style>
 
 <main>
-    {{-- @if ($Email) --}}
     <center><h2 style=" color: LightGreen; font-size: 128%;">Random Password Generator</h2>
     <hr></center>
 <section>
@@ -113,11 +112,12 @@ textarea {
     @endif
 
     @endif
-      {{-- @else
+    @if ($Email)
+
+      @else
 <script>
 window.location.href="https://gtools360.000webhostapp.com/login";
 </script>
-@endif --}}
+@endif
     </main>
-    {{-- @endif --}}
 @endsection
