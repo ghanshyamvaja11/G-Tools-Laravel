@@ -149,7 +149,7 @@ function Speech(){
 } else {
   console.log('Speech synthesis not supported');
 }
-// window.location.href = "http://gtools360.000webhostapp.com/login";
+window.location.href = "/login";
 }
 Speech();
     </script>

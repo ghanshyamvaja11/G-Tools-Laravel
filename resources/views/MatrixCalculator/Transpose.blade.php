@@ -210,7 +210,7 @@ input[type="number"] {
     @endisset
     @else
 <script>
-window.location.href="https://gtools360.000webhostapp.com/login";
+window.location.href="/login";
 </script>
     @endif
 @endsection

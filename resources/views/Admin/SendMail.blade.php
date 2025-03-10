@@ -84,7 +84,7 @@ textarea {
     </center>
        @else
 <script>
-window.location.href="https://gtools360.000webhostapp.com/login";
+window.location.href="/login";
 </script>
 </main>
 @endif

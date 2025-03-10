@@ -75,7 +75,7 @@ Thank you for visiting my website, and I hope that the tools offered here will h
 </main>
 @else
 <script>
-window.location.href="https://gtools360.000webhostapp.com/login";
+window.location.href="/login";
 </script>
     @endif
 @endsection

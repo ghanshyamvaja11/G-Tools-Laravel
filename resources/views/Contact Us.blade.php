@@ -153,7 +153,10 @@ if ('speechSynthesis' in window) {
 speak();
 window.history.back();
   </script>
-      @endif
+  <script>
+    window.location.href="/login";
+  </script>
+@endif
 <p style="color: white;">
 Alternatively, you can send an email to <span style="color: yellow; font-size: 15.9px; font-weight: bold;">ghanshyamvaja11@gmail.com</span> <span> and I will get back to you as soon as possible.<span>
 </p>

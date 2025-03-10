@@ -93,7 +93,9 @@ textarea {
     <input type="Submit" value="Login" id="Login" name="Login">
     </form>
         </center>
-        <a href="{{url('')}}/register"><button style="height: 42x; width: 96px; color: white; font-size: 19.9px; background-color: green; border-radius: 19.9px;">Register</button></a>
+        <div style="text-align: center;">
+            <a href="{{url('')}}/register"><button style="height: 42x; width: 96px; color: white; font-size: 19.9px; background-color: green; border-radius: 19.9px;">Register</button></a>
+        </div>
         </div>
     </section>
 @endsection
